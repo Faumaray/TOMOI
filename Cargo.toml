@@ -1,0 +1,10 @@
+[workspace]
+members = [
+"Generator",
+"Coder",
+"DeCoder",
+"Comparator",
+"Analyzator",
+"huff_coding",
+"check_for_generator"
+]
