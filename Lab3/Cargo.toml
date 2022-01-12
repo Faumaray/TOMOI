@@ -1,0 +1,2 @@
+[workspace]
+member=["noise-resistant_coder","noise-resistant_decoder","noisy-pipe"]

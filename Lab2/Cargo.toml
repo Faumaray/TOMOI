@@ -1,0 +1,7 @@
+[workspace]
+members = [
+"Coder",
+"DeCoder",
+"Comparator",
+"Analyzator",
+]

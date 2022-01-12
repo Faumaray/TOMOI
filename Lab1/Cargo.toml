@@ -1,0 +1,2 @@
+[workspace]
+members=["Generator","check_for_generator"]

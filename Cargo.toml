@@ -1,9 +1,1 @@
-[workspace]
-members = [
-"Generator",
-"Coder",
-"DeCoder",
-"Comparator",
-"Analyzator",
-"check_for_generator"
-]
+
