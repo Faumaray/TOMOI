@@ -160,7 +160,7 @@ pub fn decode(mut input: File, mut output: File, repair: bool) -> std::io::Resul
         let mut tmp = File::create("tmp")?;
         tmp.write(output_bytes.as_slice())?;
     }
-    {
+    if repair {
         // read from src file
         let src = File::open("tmp")?;
         let mut src_bytes_left = src.metadata().unwrap().len() as usize;
