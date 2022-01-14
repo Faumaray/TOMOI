@@ -1,2 +1,2 @@
 [workspace]
-member=["noise-resistant_coder","noise-resistant_decoder","noisy-pipe"]
+members=["compression","noise-resistant_coder","noise-resistant_decoder","noisy-pipe"]

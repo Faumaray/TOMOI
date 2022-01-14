@@ -1,10 +1,13 @@
 [package]
-name = "noise-resistant_coder"
+name = "compression"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-compression = {path= "../compression"}
-clap = {version="3.0.6", features=["derive"]}
+bitvec = "1.0.0"
+
+[lib]
+name = "compression"
+crate_type = ["rlib","dylib"]

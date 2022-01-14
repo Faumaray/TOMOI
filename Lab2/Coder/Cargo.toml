@@ -6,5 +6,5 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-clap = "3.0.0-beta.5"
+clap = {version = "3.0.6", features=["derive"]}
 bitvec = "0.20.1"
