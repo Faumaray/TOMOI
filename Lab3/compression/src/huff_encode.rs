@@ -242,7 +242,6 @@ impl Tree {
                 vc.shrink_to_fit();
                 let mut tmp = [0u8; 4];
                 let c = root.letter().unwrap().encode_utf8(&mut tmp);
-                println!("{:?}", tmp);
 
                 // convert the letter to bytes and push the bytes' bits into the tree_bin
                 for byte in BitVec::<u8, Msb0>::from_vec(tmp.to_vec()) {

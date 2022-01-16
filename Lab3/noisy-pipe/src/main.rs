@@ -30,9 +30,8 @@ fn main() -> std::io::Result<()> {
         }
         let mut original = u64::from_be_bytes(buffer);
         if rng.gen_bool(opts.prob) {
-            let invalid_bit = rng.gen_range(0..56);
+            let invalid_bit = rng.gen_range(0..64);
             let mask: u64 = 0b1 << invalid_bit;
-            println!("flipping bit: {}", invalid_bit);
 
             // Toggle that specific bit
             original ^= mask;

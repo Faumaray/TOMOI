@@ -23,6 +23,7 @@ fn main() -> std::io::Result<()> {
     two.read_to_string(&mut string_two)?;
     let vc_1 = string_one.chars().collect::<Vec<_>>();
     let vc_2 = string_two.chars().collect::<Vec<_>>();
+
     let mut err: Vec<usize> = Vec::new();
     for i in 0..vc_1.len() {
         if i < vc_2.len() {
@@ -36,7 +37,7 @@ fn main() -> std::io::Result<()> {
     if err.len() == 0 {
         println!("All Equal");
     } else {
-        for i in err {
+        /* for i in err {
             if i < vc_2.len() {
                 println!("Err index = {} ||{:?}!={:?}", i, vc_1[i], vc_2[i]);
             } else {
@@ -45,7 +46,8 @@ fn main() -> std::io::Result<()> {
                     i, vc_1[i]
                 )
             }
-        }
+        }*/
+        println!("{}", err.len() - 1);
     }
     Ok(())
 }

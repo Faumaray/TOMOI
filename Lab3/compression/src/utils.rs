@@ -133,6 +133,8 @@ fn offset_bytes(bytes: &[u8], n: usize) -> Vec<u8> {
 }
 pub fn decode(mut input: File, mut output: File, repair: bool) -> std::io::Result<()> {
     let mut buffer = [0; 8];
+    let mut error_count = 0;
+    let mut block_count = 0;
     let mut output_bytes: Vec<u8> = vec![];
     while let Ok(b) = input.read(&mut buffer[..8]) {
         // Not sure why f.read doesn't stop?
@@ -142,20 +144,22 @@ pub fn decode(mut input: File, mut output: File, repair: bool) -> std::io::Resul
         if b == 0 {
             break;
         }
-
+        block_count += 1;
         //println!("{:?}", buffer);
 
-        let decoded = crate::hamming::decode(buffer, repair);
-
+        let decoded = crate::hamming::decode(buffer, repair, block_count);
         if repair {
-            for data in decoded.unwrap() {
+            for data in decoded.0.unwrap() {
                 output_bytes.push(data);
             }
         }
-
+        error_count += decoded.1;
         // Clear buffer for next block
         buffer = [0; 8];
     }
+    println!("------------------------------------------------------------------------------");
+    println!("Block count(64 bit in block): {}", block_count);
+    println!("Error Count: {}", error_count);
     if repair {
         let mut tmp = File::create("tmp")?;
         tmp.write(output_bytes.as_slice())?;
